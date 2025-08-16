@@ -1,0 +1,14 @@
+class Solution(object):
+    def maximum69Number (self, num):
+        if num==9999:
+            return num
+        else:
+            s=list(str(num))
+            for i in range(len(s)):
+                if s[i]=="6":
+                    s[i]="9"
+                    break
+        result=""
+        for i in range(len(s)):
+            result+=s[i]
+        return int(result)
