@@ -1,0 +1,22 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        answers=[1]*n
+        prefix=[1]*n
+        postfix=[1]*n
+        prod=1
+        for i in range(n):
+            prod=prod*nums[i]
+            prefix[i]=prod
+        prod=1
+        for j in range(n-1,-1,-1):
+            prod*=nums[j]
+            postfix[j]=prod
+        for k in range(n):
+            if k==0:
+                answers[k]=postfix[k+1]
+            elif k==n-1:
+                answers[k]=prefix[k-1]
+            else:
+                answers[k]=prefix[k-1]*postfix[k+1]
+        return answers
