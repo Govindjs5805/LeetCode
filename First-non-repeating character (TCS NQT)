@@ -1,0 +1,7 @@
+s=input("Enter the string")
+s1=s.upper()
+l=list(s1)
+for char in l:
+    if l.count(char)==1:
+        print(f"First non-reapeating character is {char}")
+        break
