@@ -1,0 +1,19 @@
+Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
+
+
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        seen=set()
+        counter=[]
+        counters=set()
+        for ch in arr:
+            if ch not in seen:
+                seen.add(ch)
+                count=arr.count(ch)
+                counter.append(count)
+        for ch in counter:
+            if ch not in counters:
+                counters.add(ch)
+            else:
+                return False
+        return True
