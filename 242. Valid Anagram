@@ -1,0 +1,16 @@
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        list_s=list(s)
+        for ch in t:
+            if ch in list_s:
+                list_s.remove(ch)
+                pass
+            else:
+                return False
+        if len(list_s)==0:
+            return True
+        else:
+            return False
