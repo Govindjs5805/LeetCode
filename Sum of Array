@@ -1,0 +1,10 @@
+Given an integer array arr[], return the sum of all elements of arr.
+
+
+
+class Solution:
+	def arraySum(self, arr):
+	    sum=0
+	    for item in arr:
+	        sum+=item
+	    return sum
