@@ -1,0 +1,28 @@
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+
+If target is not found in the array, return [-1, -1].
+
+You must write an algorithm with O(log n) runtime complexity.
+
+
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        result=[]
+        n=len(nums)
+        for i in range(n):
+            if nums[i]==target:
+                result.append(i)
+        if len(result)>2:
+            b=result.pop()
+            c=result[0]
+            result=[]
+            result.append(c)
+            result.append(b)
+        if len(result)==1:
+            a=result.pop()
+            result.append(a)
+            result.append(a)
+        if len(result)==0:
+            result.append(-1)
+            result.append(-1)
+        return result
