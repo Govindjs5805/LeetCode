@@ -1,0 +1,30 @@
+The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its binary representation.
+
+For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
+Given an integer num, return its complement.
+
+
+class Solution:
+    def findComplement(self, num: int) -> int:
+        binary = []
+        while True:
+            rem = num % 2
+            binary.append(rem)
+            num = num//2
+            if num==0:
+                break
+        binary.reverse()
+        for i in range(len(binary)):
+            if binary[i]==0:
+                binary[i]=1
+            else:
+                binary[i]=0
+        j=0
+        sum=0
+        while binary:
+            a=binary.pop()
+            b=a*(2**j)
+            sum+=b
+            j+=1
+        num = sum
+        return num
