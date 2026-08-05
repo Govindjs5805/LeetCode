@@ -1,0 +1,28 @@
+import math
+def isprime(num):
+    if num <2:
+        return False
+    i=2
+    while i*i<=num:
+        if num%i==0:
+            return False
+        i+=1
+    return True
+
+n=int(input())
+arr=list(input().split(" "))
+for item in arr:
+    if not item.isdigit():
+        print("Please enter only integer items")
+        exit(1)
+for i in range(n):
+    a=arr[i]
+    b=int(a)
+    arr[i]=b
+for i in range(n-1):
+    for j in range(n-1):
+        if isprime(arr[j]) or isprime(arr[j+1]):
+            continue
+        if arr[j]>arr[j+1]:
+            arr[j],arr[j+1] = arr[j+1],arr[j]
+print(arr)
