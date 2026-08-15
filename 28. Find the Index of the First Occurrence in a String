@@ -1,0 +1,18 @@
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n=len(needle)
+        left=0
+        right=left+n-1
+        while right<len(haystack):
+            new_s=haystack[left:right+1]
+            if new_s==needle:
+                return left
+            left+=1
+            right+=1
+        return -1
+
+
