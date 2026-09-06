@@ -1,0 +1,21 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        n=len(nums)
+        i=0
+        count=0
+        flag=False
+        l1=[]
+        while flag==False:
+            if nums:
+                if nums[-1]!=target:
+                    a=nums.pop()
+                    l1.append(a)
+                else:
+                    a=nums.pop()
+                    l1.append(a)
+                    break
+            else:
+                return -1
+        m=len(l1)
+        return n-m
+                
