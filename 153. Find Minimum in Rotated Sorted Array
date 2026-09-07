@@ -1,0 +1,6 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        minimum = float('inf')
+        for i in nums:
+            minimum = min(minimum,i)
+        return minimum
