@@ -1,0 +1,14 @@
+Reverse bits of a given 32 bits signed integer.
+
+
+
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        binary = []
+        for i in range(32):
+            binary.append(n%2)
+            n = n//2
+        result = 0
+        for i in range(32):
+            result += binary[i]*(2**(31-i))
+        return result
