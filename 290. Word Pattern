@@ -1,0 +1,37 @@
+Given a pattern and a string s, find if s follows the same pattern.
+
+Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s. Specifically:
+
+Each letter in pattern maps to exactly one unique word in s.
+Each unique word in s maps to exactly one letter in pattern.
+No two letters map to the same word, and no two words map to the same letter.
+
+
+
+
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        words = s.split()
+        
+        if len(pattern) != len(words):
+            return False
+            
+        mapping = {}
+        visitedword = []
+
+        for i in range(len(pattern)):
+            letter = pattern[i]
+            word = words[i]
+
+            if letter not in mapping:
+                if word in visitedword:
+                    return False
+
+                mapping[letter] = word
+                visitedword.append(word)
+
+            else:
+                if mapping[letter] != word:
+                    return False
+
+        return True
