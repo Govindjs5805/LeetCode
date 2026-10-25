@@ -1,0 +1,37 @@
+Two strings are considered close if you can attain one from the other using the following operations:
+
+Operation 1: Swap any two existing characters.
+For example, abcde -> aecdb
+Operation 2: Transform every occurrence of one existing character into another existing character, and do the same with the other character.
+For example, aacabb -> bbcbaa (all a's turn into b's, and all b's turn into a's)
+You can use the operations on either string as many times as necessary.
+
+Given two strings, word1 and word2, return true if word1 and word2 are close, and false otherwise.
+
+
+
+
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        n1 = len(word1)
+        n2 = len(word2)
+        if n1!=n2:
+            return False
+        set1 = set(word1)
+        set2 = set(word2)
+
+        if set1 != set2:
+            return False
+        freq1 = []
+        freq2 = []
+        for letter in set1:
+            count = word1.count(letter)
+            freq1.append(count)
+        for letter in set2:
+            count = word2.count(letter)
+            freq2.append(count)
+        freq1.sort()
+        freq2.sort()
+        if freq1 == freq2:
+            return True
+        return False
