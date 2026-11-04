@@ -1,0 +1,27 @@
+Given a string s, find the length of the longest substring without duplicate characters.
+
+
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        n = len(s)
+        
+        if n==0:
+            return 0
+
+        left = 0
+        right = left+1
+        check = set()
+        check.add(s[left])
+        length = 1
+        while right < n:
+            if s[right] in check:
+                check.remove(s[left])
+                left+=1
+                
+            else:
+                check.add(s[right])
+                length = max(length,right-left+1)
+                right+=1
+        return length
+            
