@@ -1,0 +1,17 @@
+Given two integer arrays arr1 and arr2, and the integer d, return the distance value between the two arrays.
+
+The distance value is defined as the number of elements arr1[i] such that there is not any element arr2[j] where |arr1[i]-arr2[j]| <= d.
+
+
+
+class Solution:
+    def findTheDistanceValue(self, arr1: list[int], arr2: list[int], d: int) -> int:
+        n1= len(arr1)
+        n2 = len(arr2)
+        count = len(arr1)
+        for i in range(n1):
+            for j in range(n2):
+                if abs(arr2[j]-arr1[i]) <= d:
+                    count-=1
+                    break
+        return count
